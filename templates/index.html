@@ -1,0 +1,25 @@
+{% extends "commonfile.html" %}
+
+{% block title %}User Chat Interface{% endblock %}
+
+{% block nav_home %}current{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the AI Chat Interface</h1>
+    <p>Type your question below to receive an answer from the knowledge base.</p>
+
+    <form method="POST" action="/">
+        <label for="query">Your Question:</label><br>
+        <input type="text" id="query" name="query" placeholder="Ask a question..." required><br><br>
+        <button type="submit" class="btn">Ask</button>
+    </form>
+
+    {% if query %}
+    <h2>Your Question:</h2>
+    <p>{{ query }}</p>
+    
+    <h2>Answer:</h2>
+    <p>{{ response }}</p>
+    {% endif %}
+{% endblock %}
+

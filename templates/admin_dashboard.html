@@ -1,0 +1,31 @@
+{% extends "commonfile.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block nav_admin %}current{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Admin Dashboard</h1>
+
+    <h2>Upload Knowledge Base</h2>
+    <form method="POST" action="/admin_dashboard" enctype="multipart/form-data">
+        <label for="knowledge_file">Select Excel File:</label>
+        <input type="file" id="knowledge_file" name="knowledge_file" required><br><br>
+        <button type="submit" class="btn">Upload</button>
+    </form>
+
+    <h2>Update Default Error Message</h2>
+    <form method="POST" action="/admin_dashboard">
+        <label for="error_message">Error Message:</label><br>
+        <textarea id="error_message" name="error_message" rows="4" cols="50">{{ error_message }}</textarea><br><br>
+        <button type="submit" class="btn">Update</button>
+    </form>
+
+    <h2>Uploaded Files</h2>
+    <ul>
+        {% for file in files %}
+        <li>{{ file }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
