@@ -4,7 +4,7 @@ import os
 import pandas as pd
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = "YOUR_OWN_API_KEY"
 
 # MySQL connection
 db = mysql.connector.connect(
